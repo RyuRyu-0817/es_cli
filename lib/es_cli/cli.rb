@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'thor'
 require 'fileutils'
 require 'open3'
@@ -18,12 +19,13 @@ homeにESフォルダ，その中に.esconfigとprofile.orgを作成
     
      # ESフォルダがなければ作成
      if !Dir.exist?(BASE_DIR)
-       system("mkdir -p #{BASE_DIR}")
+       FileUtils.mkdir_p(BASE_DIR)
        puts "#{BASE_DIR} was created."
      end
 
      # .esconfigファイルなければ作成
      if !File.exist?(CONFIG_FILE)
+       FileUtils.touch(CONFIG_FILE)
        system("touch #{CONFIG_FILE}")
        puts "#{CONFIG_FILE} was created."
      end       
@@ -50,7 +52,7 @@ homeにESフォルダ，その中に.esconfigとprofile.orgを作成
 ==================================================
 ・setコマンド  
 ==================================================
-s=end           
+=end           
    desc "set <apikey>", "openaiのapi_keyをセットする．セットするとaiチェックができます"
    def set(apikey)    
      File.write(CONFIG_FILE, apikey)     
@@ -119,7 +121,7 @@ s=end
     end
 
     # 企業のフォルダを作成
-    system("mkdir -p #{company_dir}")
+    FileUtils.mkdir_p(company_dir)
     puts "#{company_dir} was created."
 
     # 企業のフォルダ直下にES.org作成
@@ -137,7 +139,7 @@ s=end
 
     # 企業のフォルダ直下にmemo.org作成
     memo_org = File.join(company_dir, "memo.org")
-    system("touch #{memo_org}")
+    FileUtils.touch(memo_org)
     puts "-#{memo_org}"
 
     # 企業のフォルダ直下にdeadline.txt作成
