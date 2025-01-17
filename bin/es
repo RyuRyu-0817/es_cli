@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require "es_cli"
+
+EsCli::CLI.start(ARGV)

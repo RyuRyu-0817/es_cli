@@ -1,0 +1,78 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: 最終レポート
+#+AUTHOR: Ryuto Usuzumi
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
+* 使用できるコマンド
+** es prof 
+- 概要
+  - profile.orgで記載している自分のprofileの属性を出力
+- 引数
+  - <key>(必須)
+  - <--copy>(オプション)    
+- 使用例  
+  #+BEGIN_SRC shell
+    es prof strong
+  #+END_SRC
+  - オプション入り
+  #+BEGIN_SRC shell
+    es prof strong --copy
+  #+END_SRC
+- pofile.org
+    - ガクチカ1（第一レベル）
+    - ガクチカ2（第一レベル）
+    - 強み（第一レベル）
+    - 弱み（第一レベル）
+    - 志望業界（第一レベル）
+    - キャリアプラン（第一レベル）
+      
+** es make 
+- 概要
+  - 各企業のESのテンプレートを作成
+- 引数
+  - <company>(必須)
+  - <deadline>(必須)
+- 使用例
+  - 以下のコマンドで作成されるフォルダ構成
+    - ntt
+      - ES.org
+        - 志望動機（第一レベル）
+        - 強み（第一レベル）
+        - ガクチカ（第一レベル）
+        - 当社で実現したいこと（第一レベル）
+        - キャリアプラン（第一レベル）
+      - memo.org        
+      - deadline.txt
+        - 2025-01-12
+  #+BEGIN_SRC shell
+    es make ntt 2025-01-12
+  #+END_SRC
+
+** es list
+- 概要
+  - 書いているESを締め切り順に一覧表示    
+
+** es edit
+- 概要
+  - 企業のES.orgを編集
+- 引数
+  - <company>(必須)
+- 使用例    
+  #+BEGIN_SRC shell
+    es edit ntt
+  #+END_SRC    
+    
+** es check
+- 概要
+  - chatgptのapiを使用して，企業ごとのES.orgを添削
+- 引数
+  - <company>(必須)
+- 使用例
+  #+BEGIN_SRC shell
+    es check ntt
+  #+END_SRC      
