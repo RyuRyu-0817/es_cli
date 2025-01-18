@@ -1,6 +1,7 @@
 *.swp
 *.gem
-/.bundle
+/.bundle/
+/vendor/
 /.yardoc
 /_yardoc/
 /coverage/
