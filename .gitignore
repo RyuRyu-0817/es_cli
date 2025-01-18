@@ -1,1 +1,12 @@
 *.swp
+*.gem
+/.bundle
+/.yardoc
+/_yardoc/
+/coverage/
+/spec/examples.txt
+/spec/factories
+/spec/support
+/tmp/
+/log/
+/config/secrets.yml
